@@ -16,9 +16,9 @@ class MULTModel(nn.Module):
         super(MULTModel, self).__init__()
         self.orig_d_l, self.orig_d_a, self.orig_d_v = 2048, 4, 6
         self.d_l, self.d_a, self.d_v = 30, 30, 30
-        self.vonly = False
+        self.vonly = True
         self.aonly = True
-        self.lonly = False
+        self.lonly = True
         self.num_heads = hyp_params.n_heads
         self.layers = 5             # 5
         self.attn_dropout = 0.1     # 0.1
