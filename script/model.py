@@ -92,7 +92,7 @@ class MULTModel(nn.Module):
                                   embed_dropout=self.embed_dropout, # 0.25
                                   attn_mask=self.attn_mask)         # 0.1
             
-    def forward(self, x_l, x_a, x_v, mask):
+    def forward(self, x_l, x_a, x_v):
         '''
         l:img   (bn,14,2048)
         a:box   (bn,14,4)

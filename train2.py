@@ -51,8 +51,9 @@ def main(args):
         start_time = time.time()
         for i_batch, batch in enumerate(loader):
             optimizer.zero_grad()
-            output, _ = net(batch)
-            loss = criterion(output, batch.y)
+            img, bbox, label, target = batch.img.to(device), batch.bbox.to(device), batch.label.to(device), batch.y.to(device)
+            output,_ = net(img, bbox, label)
+            loss = criterion(output, target) # target:10,output[10,6]
             loss.backward()
             
             torch.nn.utils.clip_grad_norm_(model.parameters(), args.clip)
